@@ -1,5 +1,5 @@
 #Stage 1 - Install dependencies and build the app
-FROM debian:latest AS build-env
+FROM ubuntu:20.04 AS build-env
 
 # Install flutter dependencies
 RUN apt-get update 
@@ -27,5 +27,5 @@ WORKDIR /app/
 RUN flutter build web
 
 # Stage 2 - Create the run-time image
-FROM nginx:1.21.1-alpine
-COPY --from=build-env /app/build/web /usr/share/nginx/html
+#FROM nginx:1.21.1-alpine
+#COPY --from=build-env /app/build/web /usr/share/nginx/html
